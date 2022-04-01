@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+
+  <script src="treasure.js"></script>
+  <script src="fish.js"></script>
+  <script src="Game.js"></script>
+  <script src="Rotation.js"></script>
+
+</head>
+
+<body>
+  <a-scene physics="debug:false">
+    <a-a-assets>
+      <a-asset-item id="terra" src="t1.gltf"></a-asset-item>
+      <a-asset-item id="diver" src="diver.gltf"></a-asset-item>
+    </a-a-assets>
+    <a-scene>
+
+      <a-sky geometry="primitive: sphere;" radius="500" color=" #003C5F"  animation="property: position; to: 0 100 0; easing:linear; loop: true; dur: 600000">
+       
+        <a-entity gltf-model="#terra" scale="1 1 1" position="0 -30 -40" rotation="0 -90 0" treasure fish >
+        </a-sky>
+        </a-entity>
+        <a-entity position="0 0 0" id="fishQ" fish1> </a-entity>
+        <a-entity position="0 0 0" id="treasureQ" treasure> </a-entity>
+
+        <a-entity gltf-model="#diver" scale="0.3 0.3 0.3" position="0 -15 15" rotation="0 90 0" diver-rotation-reader>
+
+          <a-sphere position="0 -15 15" radius="1" color="#f8f0e3"
+            animation="property: position; to: 0 30 10; easing:linear; loop: true; dur: 1500"></a-sphere>
+        </a-entity>
+      
+
+      <a-entity camera="active: true" position="0 10 30"></a-entity>
+    </a-scene>
+</body>
+
+</html>
